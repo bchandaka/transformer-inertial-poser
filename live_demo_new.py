@@ -30,7 +30,8 @@ FREQ = int(1. / cst.DT)
 
 color = COLOR_OURS
 
-model_name = "output/model-new-v0-2.pt"
+# model_name = "output/model-new-v0-2.pt"
+model_name = "output\model-with-dip9and10.pt"
 USE_5_SBP = True
 WITH_ACC_SUM = True
 MULTI_SBP_CORRECTION = False
@@ -314,7 +315,7 @@ if __name__ == '__main__':
             record_buffer = np.concatenate([record_buffer, RB_and_acc_t.reshape(1, -1)], axis=0)
 
             if t % (FREQ * 15) == 0:
-                with open('../imu_recordings/r' + datetime.now().strftime('%m:%d:%T').replace(':', '-') + '.pkl',
+                with open('./imu_recordings/r' + datetime.now().strftime('%m:%d:%T').replace(':', '-') + '.pkl',
                           "wb") as handle:
                     pickle.dump(
                         {"imu": record_buffer, "qdq_init": s_init_T_pose},
