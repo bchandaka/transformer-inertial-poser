@@ -62,6 +62,7 @@ if __name__ == '__main__':
     try:
         print("Opening log file...")
         logfileName = "logfile.mtb"
+        logfileName = r"C:\Users\Bharg\OneDrive\Documents\MT_012112E8_000.mtb"
         if not control.openLogFile(logfileName):
             raise RuntimeError("Failed to open log file. Aborting.")
         print("Opened log file: %s" % logfileName)

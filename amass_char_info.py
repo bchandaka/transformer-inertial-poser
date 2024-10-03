@@ -46,6 +46,98 @@ rshoulder = 16
 relbow = 17
 rwrist = 18
 
+bullet2smpl = {
+    root: 'pelvis',
+    lhip: 'left_hip',
+    lknee: 'left_knee',
+    lankle: 'left_ankle',
+    rhip: 'right_hip',
+    rknee: 'right_knee',
+    rankle: 'right_ankle',
+    lowerback: 'spine1',
+    upperback: 'spine2',
+    chest: 'spine3',
+    lowerneck: 'neck',
+    upperneck: 'head',
+    lclavicle: 'left_collar',
+    lshoulder: 'left_shoulder',
+    lelbow: 'left_elbow',
+    lwrist: 'left_wrist',
+    rclavicle: 'right_collar',
+    rshoulder: 'right_shoulder',
+    relbow: 'right_elbow',
+    rwrist: 'right_wrist',
+}
+    # 0: 'pelvis',
+    # 1: 'left_hip',
+    # 2: 'left_knee',
+    # 3: 'left_ankle',
+    # 4: 'right_hip',
+    # 5: 'right_knee',
+    # 6: 'right_ankle',
+    # 7: 'spine1',
+    # 8: 'spine2',
+    # 9: 'spine3',
+    # 10: 'neck',
+    # 11: 'head',
+    # 12: 'left_collar',
+    # 13: 'left_shoulder',
+    # 14: 'left_elbow',
+    # 15: 'left_wrist',
+    # 16: 'right_collar',
+    # 17: 'right_shoulder',
+    # 18: 'right_elbow',
+    # 19: 'right_wrist',
+# }
+SMPL_JOINT_NAMES = [
+    "pelvis",
+    "left_hip",
+    "right_hip",
+    "spine1",
+    "left_knee",
+    "right_knee",
+    "spine2",
+    "left_ankle",
+    "right_ankle",
+    "spine3",
+    "left_foot",
+    "right_foot",
+    "neck",
+    "left_collar",
+    "right_collar",
+    "head",
+    "left_shoulder",
+    "right_shoulder",
+    "left_elbow",
+    "right_elbow",
+    "left_wrist",
+    "right_wrist",
+    "left_hand",
+    "right_hand",
+]
+SMPL18_JOINT_NAMES = [
+    "pelvis",
+    "left_hip",
+    "right_hip",
+    "spine1",
+    "left_knee",
+    "right_knee",
+    "spine2",
+    "left_ankle",
+    "right_ankle",
+    "spine3",
+    "neck",
+    "left_collar",
+    "right_collar",
+    "head",
+    "left_shoulder",
+    "right_shoulder",
+    "left_elbow",
+    "right_elbow",
+]
+    
+bullet2smpl_ind = {k:SMPL_JOINT_NAMES.index(v) for k,v in bullet2smpl.items()}
+smpl18rsmpl_ind = {SMPL18_JOINT_NAMES.index(v):SMPL_JOINT_NAMES.index(v) for v in SMPL18_JOINT_NAMES}
 ''' 
 Definition of the root (base) joint
 '''
@@ -107,6 +199,7 @@ nimble_state_map[rclavicle] = 12
 nimble_state_map[rshoulder] = 13
 nimble_state_map[relbow] = 14
 nimble_state_map[rwrist] = None
+nimble2smpl_ind = {nimble_state_map[k]:smpl_ind for k,smpl_ind in bullet2smpl_ind.items()}
 
 ''' 
 Mapping from joint indicies to names
